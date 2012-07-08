@@ -3,9 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <title>Mustache JS examples</title>
+    <!-- vendor js -->
     <script src="https://raw.github.com/janl/mustache.js/master/mustache.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- app code-->
+    <script src="example.js"></script>
+    <script id="book-template" type="text/x-mustache-template">
+      <div class="book-box">
+      <h3>{{title}}</h3>
+      <span> is awesome book get it on <a href="{{associateUrl}}">Amazon</a> </span>
+      </div>
+    </script>
+    <script id="book-template-full" type="text/x-mustache-template">
+      <div class="book-box">
+      <h3>{{title}} by {{author.name}}</h3>
+      <p> is awesome book get it on <a href="{{associateUrl}}">Amazon</a> </p>
+      <p>{{#haveInStock}} Is available get one now {{/haveInStock}} </p>
+      <ul>
+      {{#similarBooks}}
+        <li>{{title}}</li>
+      {{/similarBooks}}
+      </ul>
+       <ol>
+      {{#comments}}
+        <li>{{comment}}</li>
+      {{/comments}}
+      {{^comments}}
+        <li>No comments add one</li>
+      {{/comments}}
+      </ol>
+      </div>
+    </script>
   </head>
   <body>
-  
+    <div id="content-mustache-full">
+      None
+    </div>
+    <div id="content-mustache">
+      None
+    </div>
+    <div id="content-jquery">
+      None
+    </div>
   </body>
 </html>
