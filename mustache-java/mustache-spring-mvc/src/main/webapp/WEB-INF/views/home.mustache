@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset=utf-8>
+<title>Hello Mustache</title>
+</head>
+<body>
+<div id="container">
+
+  <p>Current server time is {{serverTime}}</p>
+  <p>All the current system properties</p>
+      <ul>
+	 {{#props}}
+	    <li>{{key}} = {{value}} </li>
+	 {{/props}}
+      </ul>
+</div>
+</body>
+</html>
+
