@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MemberController {
 
   @RequestMapping(method = RequestMethod.GET)
-  public String displaySortedMembers() {
+  public String showPage() {
     return "index";
   }
 }

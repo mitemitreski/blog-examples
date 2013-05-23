@@ -2,8 +2,10 @@ package com.mitemitreski.blog.spring.rest.http.patch.domain;
 
 import java.io.Serializable;
 
-
-public class Member implements Serializable {
+/**
+ * Some bean.
+ */
+public class Member  implements Serializable {
 
   /** Comment for <code>serialVersionUID</code>. */
   private static final long serialVersionUID = -8471654782015886485L;
@@ -18,7 +20,6 @@ public class Member implements Serializable {
     this.email = email;
     this.info = info;
   }
-
 
   public Member() {
     super();
