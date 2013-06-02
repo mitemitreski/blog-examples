@@ -1,0 +1,8 @@
+{
+  "name" : "http-patch-example",
+  "description" : "example on http patch",
+  "dependencies" : ["restify"],
+  "author" : "Mite Mitreski",
+  "main" : "http-patch",
+  "version" : "0.0.1"
+}
