@@ -9,7 +9,6 @@
 <body>
   <div id="container">
     <a href="rest/members">all</a>
-  
   </div>
 </body>
 </html>

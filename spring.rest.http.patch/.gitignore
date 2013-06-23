@@ -32,3 +32,10 @@ local.properties
 
 # PDT-specific
 .buildpath
+
+#Intellij Idea
+*.iml
+*.ipr
+*.iws
+.idea/
+.sonar-ide.properties
