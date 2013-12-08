@@ -8,3 +8,9 @@
 # cfiles
 
 *.o
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
