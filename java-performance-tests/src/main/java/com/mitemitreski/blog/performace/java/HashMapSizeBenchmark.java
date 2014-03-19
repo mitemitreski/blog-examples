@@ -6,7 +6,10 @@ import com.google.caliper.Param;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * Tests related to HashMap defaultSize.
@@ -70,6 +73,7 @@ public class HashMapSizeBenchmark {
       }
 
     };
+
     abstract List<Integer> create(int length);
   }
 
@@ -80,23 +84,30 @@ public class HashMapSizeBenchmark {
   }
 
   @Benchmark
-  Map<Integer, Integer> non_initialized_size_map(int reps) {
+  Map<Integer, Integer> non_initialized_size_map() {
     Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-    for (int i = 0; i < reps; i++) {
-      for (Integer item : items) {
-        map.put(item, item);
-      }
+    for (Integer item : items) {
+      map.put(item, item);
+    }
+    return map;
+  }
+
+
+  @Benchmark
+  Map<Integer, Integer> initialized_size_bad() {
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>(length);
+    for (Integer item : items) {
+      map.put(item, item);
     }
     return map;
   }
 
   @Benchmark
-  Map<Integer, Integer> initialized_size_length_with_full_map(int reps) {
-    Map<Integer, Integer> map = new HashMap<Integer, Integer>(1 + (int) (length / 0.75));
-    for (int i = 0; i < reps; i++) {
-      for (Integer item : items) {
-        map.put(item, item);
-      }
+  Map<Integer, Integer> initialized_size_length_with_full_map() {
+    Map<Integer, Integer> map = null;
+    map = new HashMap<Integer, Integer>(1 + (int) (length / 0.75));
+    for (Integer item : items) {
+      map.put(item, item);
     }
     return map;
   }
@@ -105,12 +116,10 @@ public class HashMapSizeBenchmark {
    * By the javadoc it should be the same behaviour as JDK 1.6 with inital size
    */
   @Benchmark
-  Map<Integer, Integer> initialized_guava_defaults(int reps) {
+  Map<Integer, Integer> initialized_guava_defaults() {
     Map<Integer, Integer> map = Maps.newHashMapWithExpectedSize(length);
-    for (int i = 0; i < reps; i++) {
-      for (Integer item : items) {
-        map.put(item, item);
-      }
+    for (Integer item : items) {
+      map.put(item, item);
     }
     return map;
   }
