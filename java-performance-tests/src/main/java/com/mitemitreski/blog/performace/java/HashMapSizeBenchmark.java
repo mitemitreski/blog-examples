@@ -104,8 +104,7 @@ public class HashMapSizeBenchmark {
 
   @Benchmark
   Map<Integer, Integer> initialized_size_length_with_full_map() {
-    Map<Integer, Integer> map = null;
-    map = new HashMap<Integer, Integer>(1 + (int) (length / 0.75));
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>(1 + (int) (length / 0.75));
     for (Integer item : items) {
       map.put(item, item);
     }
